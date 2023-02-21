@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+/* main : #003a80ff */
+/* secondary : #260080c0 */
+
+html{
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+}
+
+body{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
