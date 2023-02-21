@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { SafeUrl } from '@angular/platform-browser';
 
@@ -7,11 +7,14 @@ import { SafeUrl } from '@angular/platform-browser';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements AfterViewInit {
 
   dataQR:string = '';
   qrCodeDownloadLink : SafeUrl = '';
   width:number = 256;
+
+  private window: { [key: string]: any[] } = {};
+
   /* qrcode-fast.online */
   form: FormGroup = this.formBuilder.group({
     url: [
@@ -27,7 +30,15 @@ export class AppComponent implements OnInit {
 
 
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    window
+    setTimeout(() => {
+      try {
+        //(window['adsbygoogle'] = window['adsbygoogle'] || []).push({});
+      } catch (e) {
+        console.error('error');
+      }
+    }, 2000);
 
   }
 
