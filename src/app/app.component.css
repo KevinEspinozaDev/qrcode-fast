@@ -40,6 +40,10 @@
   align-items: center;
 }
 
+.ads{
+  width: 100%;
+}
+
 .qrContainer{
   display: flex;
   justify-content: center;
