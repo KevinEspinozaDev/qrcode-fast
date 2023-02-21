@@ -21,6 +21,11 @@
   margin-top: 8px;
 
 }
+
+.btnSubmit:hover{
+  background-color: rgb(0, 122, 71);
+}
+
 .btnSubmit{
   background-color: rgb(0, 187, 109);
   color: #fff;
@@ -28,13 +33,10 @@
 }
 
 .btnReset{
-  background-color: rgb(68, 143, 255);
   color: #fff;
 }
 
 .btnIcon{
-  background-color: rgb(0, 187, 109);
-  color: #fff;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -62,22 +64,20 @@
 
 footer{
   background-color: rgb(0, 187, 109);
-  height: 10%px;
+  height: 10%;
   padding: 32px;
   display: flex;
   flex-direction: column;
   color: #fff;
   align-items: center;
+  font-size: 1.2em;
 }
 
 .linkUnstyled{
   color: #fff;
   text-decoration: none;
-  font-size: 1.8em;
 }
 
 .futurelaugh{
   display: flex;
-  align-items: center;
-  flex-direction: column;
 }

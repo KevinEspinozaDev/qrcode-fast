@@ -1,14 +1,22 @@
+<nav class="nav bg-success container d-flex flex-row justify-content-center align-items-center text-white">
+  <img src="./../assets/images/logo.png" alt="QR Code Fast Logo" width="46" height="46">
+  QR Code Fast
+</nav>
+
 <div class="container">
 
-  <h2>Write an URL to create ASAP a QR Code!</h2>
+
+  <h2>Write an URL to create a QR Code!</h2>
   <br>
 
-  <form [formGroup]="form" (submit)="generate()" class="form">
-    <input type="text" value="" formControlName="url" class="input" placeholder="Write an URL...">
+  <form [formGroup]="form" (submit)="generate()" [noValidate]="false" class="form">
+    <input type="text" value="" minlength="8" formControlName="url"
+    class="form-control" placeholder="Write an URL..."
+    [ngClass]="{'is-invalid' : !form.valid && form.controls['url'].value}"
+    >
 
-    <button type="submit" class="btn btnSubmit"><b>Generate</b></button>
-    <button type="reset" (click)="reset()" class="btn btnReset">Reset</button>
-
+    <button type="submit" class="btn btn-success btn-disabled"><b>Generate</b></button>
+    <button type="reset" (click)="reset()" class="btn btn-light">Reset</button>
   </form>
 
   <div class="ads">
@@ -18,25 +26,25 @@
 
   <div class="qrContainer">
 
-    <div class="qrDataContainer" *ngIf="dataQR !== ''">
+    <div class="qrDataContainer" *ngIf="form.valid && dataQR !== '' && dataQR !== null">
 
       <qrcode
         [qrdata]="dataQR"
         [width]="width"
         (qrCodeURL)="onChangeURL($event)"
-        [allowEmptyString]="true"
+        [allowEmptyString]="false"
         [errorCorrectionLevel]="'M'">
       </qrcode>
 
       <p>{{width}} px | {{width * 0.026}} cm</p>
 
-      <a [href]="qrCodeDownloadLink" download="{{dataQR}}-qrcode.png" class="btn btnIcon">
+      <a [href]="qrCodeDownloadLink" download="qr-{{dataQR}}.png" class="btn btnIcon btn-success">
         <img src="./../assets/icons/download.svg" alt="Download QR" class="icon">
         Download
       </a>
     </div>
 
-    <div class="qrDataContainer" *ngIf="dataQR === ''">
+    <div class="qrDataContainer" *ngIf="dataQR === '' || dataQR === null">
       <i>QR Code is generated here...</i>
     </div>
 
@@ -45,12 +53,14 @@
 
 </div>
 
-<footer>
-  <p>Powered by:</p>
-  <p class="futurelaugh">
-    <a href="https://futurelaugh.vercel.app" class="linkUnstyled">Future Laugh</a>
-    <img src="./../assets/images/futurelaugh.png" alt="Future Laugh Page" width="64" height="64">
+<footer class="bg-success">
+  <p>
+    Powered by:
+    <a href="https://futurelaugh.vercel.app/about" class="linkUnstyled">Future Laugh
+      <img src="./../assets/images/futurelaugh.png" alt="Future Laugh Page" width="32" height="32">
+    </a>
   </p>
-  <p>2023</p>
+
+  <p>All rights reserved. 2023</p>
 </footer>
 

@@ -13,6 +13,11 @@ export class AppComponent implements OnInit {
   qrCodeDownloadLink : SafeUrl = '';
   width:number = 256;
   /* qrcode-fast.online */
+  form: FormGroup = this.formBuilder.group({
+    url: [
+      '', [Validators.required, Validators.minLength(8)]
+    ]
+  });
 
   constructor(
     private formBuilder : FormBuilder
@@ -20,9 +25,6 @@ export class AppComponent implements OnInit {
 
   }
 
-  form: FormGroup = this.formBuilder.group({
-    url: ['', Validators.required]
-  })
 
 
   ngOnInit(): void {
@@ -31,6 +33,7 @@ export class AppComponent implements OnInit {
 
   generate():void{
     this.dataQR = this.form.controls['url'].value;
+
   }
 
   reset():void{
@@ -39,6 +42,7 @@ export class AppComponent implements OnInit {
 
   onChangeURL(url: SafeUrl) {
     this.qrCodeDownloadLink = url;
+    this.dataQR = this.form.controls['url'].value;
   }
 
 }
