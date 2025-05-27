@@ -1,6 +1,6 @@
 <nav class="nav bg-success container d-flex flex-row justify-content-center align-items-center text-white">
   <img src="./../assets/images/logo.png" alt="QR Code Fast Logo" width="46" height="46">
-  QR Code Fast
+  QRocket
 </nav>
 
 <div class="container">
@@ -8,7 +8,7 @@
 
   <h2>Write an URL to create a QR Code!</h2>
   <p>
-    This QR Code generator is useful to get a qr to download</p>
+    This QR Code generator is useful to get a QR to download</p>
   <br>
 
   <form [formGroup]="form" (submit)="generate()" [noValidate]="false" class="form">
@@ -65,6 +65,13 @@
   <section class="faqSection">
     <h2>FAQ</h2>
     <ul>
+
+      <li>How do you create a QR Code?</li>
+      <ul>
+        <li>
+          This QR Code generator uses the library angularx-qrcode to create QR codes, so it because it uses a local installed library, it works very fast (as fast as a <b>Rocket!</b>)
+        </li>
+      </ul>
 
       <li>What is a QR Code?
         <ul>
